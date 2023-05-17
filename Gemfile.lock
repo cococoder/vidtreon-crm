@@ -2,7 +2,9 @@ PATH
   remote: .
   specs:
     crm (0.1.0)
+      acts-as-taggable-on (~> 9.0)
       rails (>= 7.0.4.3)
+      workflow-activerecord (~> 6.0)
 
 GEM
   remote: https://rubygems.org/
@@ -72,6 +74,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    acts-as-taggable-on (9.0.1)
+      activerecord (>= 6.0, < 7.1)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -151,6 +155,10 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    workflow (3.0.0)
+    workflow-activerecord (6.0.0)
+      activerecord (>= 6.0)
+      workflow (~> 3.0)
     zeitwerk (2.6.8)
 
 PLATFORMS
