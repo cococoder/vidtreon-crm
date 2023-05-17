@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddMissingIndexesOnTaggings < ActiveRecord::Migration[6.0]
+class AddMissingIndexesOnTaggings < ActiveRecord::Migration[7.0]
   def change
     add_index ActsAsTaggableOn.taggings_table, :tag_id unless index_exists? ActsAsTaggableOn.taggings_table, :tag_id
     add_index ActsAsTaggableOn.taggings_table, :taggable_id unless index_exists? ActsAsTaggableOn.taggings_table,

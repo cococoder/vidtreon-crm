@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddMissingUniqueIndices < ActiveRecord::Migration[6.0]
+class AddMissingUniqueIndices < ActiveRecord::Migration[7.0]
   def self.up
     add_index ActsAsTaggableOn.tags_table, :name, unique: true
 
