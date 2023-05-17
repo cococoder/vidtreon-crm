@@ -25,7 +25,7 @@ module Crm
       @user = User.new(user_params)
 
       if @user.save
-        redirect_to @user, notice: "User was successfully created."
+        redirect_to show_tenant_user_path(tenant: @tenant.name,id:@user.id), notice: "User was successfully created."
       else
         render :new, status: :unprocessable_entity
       end
@@ -34,7 +34,7 @@ module Crm
     # PATCH/PUT /users/1
     def update
       if @user.update(user_params)
-        redirect_to @user, notice: "User was successfully updated."
+        redirect_to show_tenant_user_path(tenant: @tenant.name,id:@user.id), notice: "User was successfully updated."
       else
         render :edit, status: :unprocessable_entity
       end

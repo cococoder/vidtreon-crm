@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddTenantToTaggings < ActiveRecord::Migration[6.0]
+class AddTenantToTaggings < ActiveRecord::Migration[7.0]
   def self.up
     add_column ActsAsTaggableOn.taggings_table, :tenant, :string, limit: 128
     add_index ActsAsTaggableOn.taggings_table, :tenant unless index_exists? ActsAsTaggableOn.taggings_table, :tenant
