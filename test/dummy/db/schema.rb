@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_065557) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_070851) do
   create_table "crm_tenants", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "crm_users", force: :cascade do |t|
+    t.integer "tenant_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "uid"
+    t.string "workflow_state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tenant_id"], name: "index_crm_users_on_tenant_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -48,5 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_065557) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "crm_users", "tenants"
   add_foreign_key "taggings", "tags"
 end
