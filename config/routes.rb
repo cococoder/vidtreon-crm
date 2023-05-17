@@ -1,3 +1,5 @@
 Crm::Engine.routes.draw do
-  resources :users
+  scope "/:tenant" do
+    resources :users
+  end
 end
